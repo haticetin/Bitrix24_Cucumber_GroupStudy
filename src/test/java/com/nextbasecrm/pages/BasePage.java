@@ -31,7 +31,7 @@ public abstract class BasePage {
     @FindBy(css = "div.help-block-icon")
     public WebElement helpIcon;
 
-    @FindBy(id = "pagetitle")
+    @FindBy(xpath = "//*[@id='pagetitle']")
     public WebElement pageTitle;
 
 
@@ -71,16 +71,16 @@ public abstract class BasePage {
     }
 
     /**
-     * This method will navigate user to the specific tab in nextbasecrm application.
-     * For example: if tab is equals to activity Stream
+     * This method will navigate user to the specific module in nextbasecrm application.
+     * For example: if module is equals to activity Stream
      *
-     * @param tab
+     * @param module
      */
-    public void navigateToModule(String tab) {
+    public void navigateToModule(String module) {
 
-        tab = initialLetterCovert(tab);
+        module = initialLetterCovert(module);
 
-        String tabLocator = "//span[@class='menu-item-link-text'][contains(text(),'"+tab+"')]";
+        String tabLocator = "//span[@class='menu-item-link-text'][contains(text(),'"+module+"')]";
 
         try {
             BrowserUtils.waitForClickablility(By.xpath(tabLocator), 5);
@@ -97,7 +97,7 @@ public abstract class BasePage {
     /**
      * This method will capitalizes the first letters of the words in the sentence.
      * For example: srt input =" CHAT AND CALLS " output: "Chat and Class"
-     * For useing navigate tab we need this format of string .. By Talha***
+     * For useing navigate tab we need this format of string .. Tlh***
      *
      * @param str
      */

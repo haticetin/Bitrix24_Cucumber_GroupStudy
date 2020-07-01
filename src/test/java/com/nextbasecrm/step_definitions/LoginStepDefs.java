@@ -1,36 +1,28 @@
 package com.nextbasecrm.step_definitions;
 
 import com.nextbasecrm.pages.LoginPage;
+import com.nextbasecrm.utilities.Pages;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginStepDefs {
 
+    Pages pages = new Pages();
 
-    @Given("the user is on the login page")
-    public void the_user_is_on_the_login_page() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @When("the user logged in as a {string}")
+    public void theUserLoggedInAsA(String userType) {
+        pages.loginPage().loginAs(userType);
     }
 
-    @When("the user enter the {string} information")
-    public void the_user_enter_the_information(String userType) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @And("the user navigate to {string} page and verify on the {string} page")
+    public void theUserNavigateToPageAndVerifyOnThePage(String module, String pageTitle) {
+        pages.tasksPage().navigateToModule(module);
+        Assert.assertEquals("Page title is true, we are on true page!",pages.tasksPage().pageTitle.getText(), pageTitle);
     }
 
-    @Then("the user should be able to login")
-    public void the_user_should_be_able_to_login() {
-       LoginPage loginPage = new LoginPage();
-
-    }
-
-
-    @When("smoke it")
-    public void smoke_it() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
 
 }

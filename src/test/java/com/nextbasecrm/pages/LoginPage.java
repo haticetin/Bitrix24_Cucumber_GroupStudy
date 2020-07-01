@@ -25,8 +25,6 @@ import org.openqa.selenium.support.PageFactory;
         WebElement forgotPasswordButton;
 
 
-
-
         public void loginAs(String user){
 
             userName.sendKeys(ConfigurationReader.get(user+"_username") );

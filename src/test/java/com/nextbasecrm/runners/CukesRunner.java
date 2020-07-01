@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/nextbasecrm/step_definitions",
         dryRun = false, // method içine girmedn run ediyordu ,eksik stepleri yazdırmak kullan!
-        tags = ""
+        tags = "@wip"
 
 )
 public class CukesRunner {

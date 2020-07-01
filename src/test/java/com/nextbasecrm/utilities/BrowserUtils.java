@@ -8,10 +8,21 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
 public class BrowserUtils {
+
+
+    public static List<String> getCommaList(String commaList){
+        List<String> list =  Arrays.asList(commaList.split(","));
+        for (int i = 0; i < list.size(); i++) {
+            list.set(i,list.get(i).trim());
+        }
+        return list;
+    }
+
 
     /**
      * Switches to new window by the exact title. Returns to original window if target title not found
